@@ -1,0 +1,67 @@
+.error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 100;
+  //   min-width: 500px !important; /* Need a specific value to work */
+  width: 900px;
+  height: 350px;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  backdrop-filter: blur(100px);
+  margin-top: 200px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  //   font-weight: 100;
+  color: #7e7e7e;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 40%;
+  }
+
+  img {
+    width: 4rem;
+    padding-right: 3rem;
+    // top: 50px;
+  }
+  .close-error {
+    background-image: url("../img/close.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    position: absolute;
+    right: 1.2rem;
+    top: 1rem;
+
+    &:hover {
+      cursor: pointer;
+      scale: 0.96;
+    }
+  }
+}
+
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  content: "";
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.5;
+}

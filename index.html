@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Raleway&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" defer src="./app.js"></script>
+    <script src="./node_modules/chart.js/dist/chart.umd.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <input type="text" id="search" />
+      <input type="submit" name="submit" value="Submit" class="search-btn" />
+    </header>
+    <div class="container">
+      <section class="coin-list">
+        <ul class="coin-in-list">
+          <!-- <li class="preview">
+            <a class="preview-coin" href="#">
+              <p class="preview-coin__title">SYMBOL</p>
+              <p class="preview-coin__name">Name</p>
+            </a>
+          </li> -->
+        </ul>
+      </section>
+      <section class="coin-details">
+        <div class="coin-header">
+          <div class="coin-header__left">
+            <div class="upper-row">
+              <img src="" alt="coin-image" class="coin-image" />
+              <h1 class="coin-name">btc</h1>
+            </div>
+            <div class="bottom-row">
+              <h1 class="coin-current-price--title">Current price:</h1>
+              <h2 class="coin-current-price">100</h2>
+            </div>
+          </div>
+          <div class="coin-header__right">
+            <div class="upper-row">
+              <h1 class="coin-header__right--title">Market Cap:</h1>
+              <h2 class="coin-marketcap">1000</h2>
+            </div>
+            <div class="bottom-row">
+              <h1 class="coin-header__right--title">Volume:</h1>
+              <h2 class="coin-volume">1000</h2>
+            </div>
+          </div>
+        </div>
+        <div class="coin-chart-wrapper">
+          <canvas id="coin-chart"></canvas>
+          <div class="coin-chart-btn">
+            <button class="btn-chart 1h">1h</button>
+            <button class="btn-chart 4h">4h</button>
+            <button class="btn-chart 1D">1D</button>
+          </div>
+
+          <div class="coin-description">
+            <h1 class="description-title">Description</h1>
+          </div>
+        </div>
+      </section>
+      <!-- <div class="error">
+        <div>
+          <img src="./img/error.png" alt="errorIcon" />
+          <p>Oops, something went wrong!</p>
+        </div>
+        <button class="close-error"></button>
+      </div> -->
+    </div>
+    <!-- <script src="app.js"></script> -->
+  </body>
+</html>
