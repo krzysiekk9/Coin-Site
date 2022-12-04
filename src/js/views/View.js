@@ -1,9 +1,11 @@
 export default class View {
-  //   _data;
+  _data;
   //   _errorMessage = "Oops, something went wrong!";
 
   render(data) {
     if (!data) return this.renderError();
+
+    this._data = data;
 
     const markup = this._generateMarkup();
     this._clear();

@@ -1,16 +1,24 @@
 .coin-list {
-  background-color: rgb(38, 255, 0);
   width: 20%;
+  padding-top: 2rem;
+  box-sizing: border-box;
+  box-sizing: content-box;
   list-style: none;
+  ul {
+    list-style: none;
+  }
 }
 .preview-coin {
   display: flex;
   flex-direction: row;
   width: 80%;
   padding: 1rem 2rem;
-  border: 1px solid black;
-  text-decoration: none;
+  border-bottom: 1px solid black;
   color: #000;
+  text-decoration: none;
+  list-style: decimal;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
 
   &__title {
     padding: 0 2rem 0 1rem;
