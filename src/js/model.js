@@ -83,7 +83,8 @@ export const createCoinList = function (page = state.coinList.page) {
   const start = (page - 1) * state.coinList.resultsPerPage; //0;
   const end = page * state.coinList.resultsPerPage; //9
 
-  console.log(state.coinList.results.slice(start, end));
+  // console.log(state.coinList.results.slice(start, end));
+  return state.coinList.results.slice(start,end)
 };
 
 export const loadCoinList = async function () {
@@ -94,4 +95,4 @@ export const loadCoinList = async function () {
   }
 };
 
-loadCoinList();
+// loadCoinList();

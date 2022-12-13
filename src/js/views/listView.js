@@ -1,18 +1,14 @@
 import View from "./View.js";
+import previewView from "./previewView.js"
 
 class ListView extends View {
-  _parentElement = document.querySelector(".coin-list");
+  _parentElement = document.querySelector(".coin-in-list");
   _errorMessage = "Something went wrong... could not generate list. ";
 
   _generateMarkup() {
-    return `
-    <li>
-        <a class="preview-coin" href="#">
-            <p class="preview-coin__title">${this._data.symbol}</p>
-            <p class="preview-coin__name">${this._data.name}</p>
-        </a>
-    </li>
-    `;
+    return this._data.map(result => 
+      previewView.render(result,false)
+      ).join('')
   }
 }
 export default new ListView();

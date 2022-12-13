@@ -31,14 +31,13 @@ const controlCoinView = async function () {
     coinView.render(model.state.coinDetails);
     // console.log(model.state);
   } catch (err) {
-    coinView.renderError(err);
+    console.log(err);
   }
 };
 
 const controlCoinList = async function () {
   try {
     await model.loadCoinList();
-    console.log(model.state.coinList.results);
     listView.render(model.createCoinList());
   } catch (err) {
     console.log(err);
