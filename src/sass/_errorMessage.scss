@@ -1,0 +1,47 @@
+.error{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  width: 50rem;
+  height: 20rem;
+  border-radius: 20px;
+  background-color: #7272728a;
+  backdrop-filter: blur(15px)!important;
+  
+  margin-top: 10rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+
+  color: #ffffff;
+  visibility: visible;
+  opacity: 1;
+
+  backdrop-filter: blur(200px);
+  filter: blur(0px) !important;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 40%;
+  }
+
+  img {
+    width: 4rem;
+    padding-right: 3rem;
+  }
+}
+
+.hidden{
+  visibility: hidden;
+  opacity: 0;
+}

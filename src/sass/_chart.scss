@@ -1,0 +1,44 @@
+#coin-chart {
+  padding: 0;
+  margin: 0;
+  width: max-content !important;
+
+  @media (max-width: 600px) {
+    visibility: hidden!important;
+  }
+  @media (max-width: 900px) {
+    position: absolute;
+    left: 100px;
+    height: 280px !important;
+    top: 250px;
+  }
+  @media (min-width: 1050px) {
+    height: 30rem !important;
+    transform: translateX(5%);
+  }
+  @media (min-width: 1400px) {
+    height: 30rem !important;
+    transform: translateX(5%);
+  }
+  @media (min-width: 1600px) {
+    height: 35rem !important;
+    transform: translateX(5%);
+  }
+  @media (min-width: 1920px) {
+    height: 40rem !important;
+    transform: translateX(5%);
+  }
+  @media (min-width: 2100px) {
+    height: 40rem !important;
+    transform: translateX(20%);
+  }
+}
+canvas {
+  padding-top: 1rem !important;
+}
+.coin-chart-wrapper {
+  display: block;
+  flex-direction: column;
+  justify-content: center !important;
+  text-align: center !important;
+}

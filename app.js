@@ -65,14 +65,14 @@ const getCoinList = async function () {
 
 const generateChartMarkup = function (data) {
   const prices = data.prices;
-  console.log(data.prices);
 
-  const xValues = prices.map((cur) => cur.shift());
-  const yValues = prices.flat();
+  const datesValues = prices.map((cur) => cur.shift());
+  console.log(datesValues);
+  const pricesValues = prices.flat();
 
   const datesArr = [];
 
-  xValues.map((cur) => {
+  datesValues.map((cur) => {
     const date = new Date(cur);
     cur = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} `;
     datesArr.push(cur);
@@ -90,7 +90,7 @@ const generateChartMarkup = function (data) {
       labels: datesArr,
       datasets: [
         {
-          data: yValues,
+          data: pricesValues,
           pointRadius: 0,
           borderColor: "#00b4d8",
           borderWidth: 1,
