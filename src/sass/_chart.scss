@@ -3,11 +3,20 @@
   margin: 0;
   width: max-content !important;
 
+  @media (max-width: 600px) {
+    visibility: hidden!important;
+  }
+  @media (max-width: 900px) {
+    position: absolute;
+    left: 100px;
+    height: 280px !important;
+    top: 250px;
+  }
   @media (min-width: 1050px) {
-    height: 25rem !important;
+    height: 30rem !important;
     transform: translateX(5%);
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 1400px) {
     height: 30rem !important;
     transform: translateX(5%);
   }

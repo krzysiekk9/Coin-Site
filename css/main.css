@@ -1,1 +1,434 @@
-.header{background-color:#f2f2f2;border-bottom:1px solid rgba(88,88,88,0.58);border-left:30px;padding:1rem;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.header #search{border:1px solid black;border-radius:2rem;padding:0.5rem;width:30%;background:url("/src/img/search.svg");background-repeat:no-repeat;background-size:contain}.header .search-btn{border:none;border-radius:2rem}.coin-list{width:20%;padding-top:2rem;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-sizing:content-box;box-sizing:content-box;list-style:none}.coin-list ul{list-style:none}.preview-coin{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;width:80%;padding:1rem 2rem;border-bottom:1px solid black;color:#000;text-decoration:none;list-style:decimal;font-family:"Raleway", sans-serif;font-weight:800}.preview-coin__title{padding:0 2rem 0 1rem;width:30%}.preview-coin__name{padding-left:1rem;width:70%}.container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important;width:100%;height:100%;margin:0}#coin-chart{padding:0;margin:0;width:-webkit-max-content !important;width:-moz-max-content !important;width:max-content !important}@media (min-width: 1050px){#coin-chart{height:25rem !important;-webkit-transform:translateX(5%);transform:translateX(5%)}}@media (min-width: 1200px){#coin-chart{height:30rem !important;-webkit-transform:translateX(5%);transform:translateX(5%)}}@media (min-width: 1600px){#coin-chart{height:35rem !important;-webkit-transform:translateX(5%);transform:translateX(5%)}}@media (min-width: 1920px){#coin-chart{height:40rem !important;-webkit-transform:translateX(5%);transform:translateX(5%)}}@media (min-width: 2100px){#coin-chart{height:40rem !important;-webkit-transform:translateX(20%);transform:translateX(20%)}}canvas{padding-top:1rem !important}.coin-chart-wrapper{display:block;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center !important;-ms-flex-pack:center !important;justify-content:center !important;text-align:center !important}.coin-details{padding:2rem 5rem;font-family:"Barlow", sans-serif;width:70%;height:100%}.coin-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:0 5rem}.upper-row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.bottom-row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.coin-header__right{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:distribute;justify-content:space-around}.coin-image{padding-right:1rem;width:2rem;height:2rem}.coin-name{font-size:2rem;font-family:"Russo One", sans-serif;font-weight:100}.coin-current-price{padding-left:1rem}.coin-marketcap{-webkit-transform:translateX(20%);transform:translateX(20%)}.coin-volume{-webkit-transform:translateX(50%);transform:translateX(50%)}.coin-description{text-align:justify;width:80%;-webkit-transform:translateX(10%);transform:translateX(10%);text-decoration:none !important;font-size:1rem !important}.description-title{font-size:2rem;padding:1rem 0;font-family:"Raleway", sans-serif}.description-text{font-size:1.2rem;font-family:"Raleway", sans-serif;color:#000000}.description-text a{color:#000000;text-decoration:none}.error{position:absolute;left:0;right:0;margin-left:auto;margin-right:auto;z-index:100;width:900px;height:350px;border-radius:20px;background-color:#fbfbfb;-webkit-backdrop-filter:blur(100px);backdrop-filter:blur(100px);margin-top:200px;font-family:"Raleway", sans-serif;font-size:1.5rem;color:#7e7e7e}.error div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:absolute;left:0;right:0;margin-left:auto;margin-right:auto;top:40%}.error img{width:4rem;padding-right:3rem}.error .close-error{background-image:url("../img/error.png");background-size:contain;background-repeat:no-repeat;width:2rem;height:2rem;border:none;position:absolute;right:1.2rem;top:1rem}.error .close-error:hover{cursor:pointer;scale:0.96}.blur-background{position:absolute;top:0;left:0;width:100%;height:100%;background-color:black;content:"";pointer-events:none;z-index:100;opacity:0.5}*{margin:0}
+.header {
+  background-color: #FFF;
+  border-bottom: 2px solid #E5E5E5;
+  border-left: 30px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header .search__field {
+  border: none;
+  background-color: #EFF2F5;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 60%;
+}
+.header .search__field:focus {
+  background-color: rgba(217, 220, 224, 0.7098039216);
+  outline: none;
+}
+.header .search-btn {
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  background-image: url("/src/img/search.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.header .search-btn:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+.header .logo {
+  height: 3rem;
+  width: auto;
+}
+.header .search {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+
+.coin-list {
+  width: 20%;
+  padding-top: 2rem;
+  box-sizing: border-box;
+  box-sizing: content-box;
+  list-style: none;
+  padding-top: 5rem;
+}
+.coin-list ul {
+  list-style: none;
+}
+.coin-list .btn--inline {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  text-align: center;
+  padding: 0.5rem 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #535358;
+}
+.coin-list .btn--inline:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(0.99);
+}
+.coin-list .btn--inline img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.coin-list .btn-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem 3rem;
+}
+@media (max-width: 900px) {
+  .coin-list .btn-list {
+    visibility: hidden;
+  }
+}
+@media (max-width: 1400px) {
+  .coin-list .btn-list span {
+    font-size: 0.8rem !important;
+  }
+}
+.coin-list .arrow {
+  width: 50px;
+  height: 50px;
+}
+
+.preview-coin {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.351);
+  color: #000;
+  text-decoration: none;
+  list-style: decimal;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+}
+.preview-coin__title {
+  padding: 0 2rem 0 1rem;
+  width: 30%;
+}
+@media (max-width: 1400px) {
+  .preview-coin__title {
+    padding: 0 1rem 0 0.5rem;
+  }
+}
+.preview-coin__name {
+  padding-left: 1rem;
+  width: 70%;
+}
+@media (max-width: 1400px) {
+  .preview-coin__name {
+    padding-left: 0rem;
+  }
+}
+@media (max-width: 900px) {
+  .preview-coin {
+    visibility: hidden;
+  }
+}
+@media (max-width: 1400px) {
+  .preview-coin {
+    font-size: 0.8rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #FAFCFE;
+}
+
+#coin-chart {
+  padding: 0;
+  margin: 0;
+  width: -webkit-max-content !important;
+  width: -moz-max-content !important;
+  width: max-content !important;
+}
+@media (max-width: 600px) {
+  #coin-chart {
+    visibility: hidden !important;
+  }
+}
+@media (max-width: 900px) {
+  #coin-chart {
+    position: absolute;
+    left: 100px;
+    height: 280px !important;
+    top: 250px;
+  }
+}
+@media (min-width: 1050px) {
+  #coin-chart {
+    height: 30rem !important;
+    transform: translateX(5%);
+  }
+}
+@media (min-width: 1400px) {
+  #coin-chart {
+    height: 30rem !important;
+    transform: translateX(5%);
+  }
+}
+@media (min-width: 1600px) {
+  #coin-chart {
+    height: 35rem !important;
+    transform: translateX(5%);
+  }
+}
+@media (min-width: 1920px) {
+  #coin-chart {
+    height: 40rem !important;
+    transform: translateX(5%);
+  }
+}
+@media (min-width: 2100px) {
+  #coin-chart {
+    height: 40rem !important;
+    transform: translateX(20%);
+  }
+}
+
+canvas {
+  padding-top: 1rem !important;
+}
+
+.coin-chart-wrapper {
+  display: block;
+  flex-direction: column;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.coin-details {
+  padding: 2rem 5rem;
+  font-family: "Barlow", sans-serif;
+  width: 70%;
+  height: 100%;
+}
+
+.coin-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5rem;
+}
+@media (max-width: 600px) {
+  .coin-header {
+    position: absolute !important;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem !important;
+    left: -10px !important;
+  }
+}
+@media (max-width: 900px) {
+  .coin-header {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem !important;
+    left: 30%;
+  }
+}
+@media (max-width: 1000px) {
+  .coin-header {
+    font-size: 0.6rem !important;
+  }
+}
+@media (max-width: 1400px) {
+  .coin-header {
+    font-size: 0.8rem;
+  }
+}
+
+.upper-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.coin-header__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media (max-width: 900px) {
+  .coin-header__right {
+    font-size: 1rem !important;
+  }
+}
+
+.coin-image {
+  padding-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.coin-name {
+  font-size: 2rem;
+  font-family: "Russo One", sans-serif;
+  font-weight: 100;
+}
+
+.coin-current-price {
+  padding-left: 1rem;
+}
+@media (max-width: 900px) {
+  .coin-current-price {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .coin-current-price--title {
+    font-size: 1.5rem !important;
+  }
+}
+
+.coin-marketcap {
+  transform: translateX(20%);
+}
+
+.coin-volume {
+  transform: translateX(50%);
+}
+
+.coin-description {
+  text-align: justify;
+  width: 80%;
+  transform: translateX(10%);
+  text-decoration: none !important;
+  font-size: 1rem !important;
+}
+@media (max-width: 600px) {
+  .coin-description {
+    position: absolute !important;
+    top: 280px !important;
+    left: 20px !important;
+    max-width: 350px !important;
+  }
+}
+@media (max-width: 900px) {
+  .coin-description {
+    position: relative;
+    top: 500px;
+  }
+}
+@media (max-width: 1200px) {
+  .coin-description {
+    width: 90% !important;
+  }
+}
+
+.description-title {
+  font-size: 2rem;
+  padding: 1rem 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.description-text {
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  color: #000000;
+}
+.description-text a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  width: 50rem;
+  height: 20rem;
+  border-radius: 20px;
+  background-color: rgba(114, 114, 114, 0.5411764706);
+  -webkit-backdrop-filter: blur(15px) !important;
+          backdrop-filter: blur(15px) !important;
+  margin-top: 10rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  visibility: visible;
+  opacity: 1;
+  -webkit-backdrop-filter: blur(200px);
+          backdrop-filter: blur(200px);
+  filter: blur(0px) !important;
+}
+.error div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+}
+.error img {
+  width: 4rem;
+  padding-right: 3rem;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.spinner {
+  margin: auto;
+  text-align: center;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
+.spinner img {
+  width: 70px;
+  height: 70px;
+  -webkit-animation: rotate 2s infinite linear;
+          animation: rotate 2s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #FAFCFE;
+}

@@ -1,23 +1,16 @@
-import * as model from "./model.js";
-import chartView from "./views/chartView.js";
-import coinView from "./views/coinView.js";
-import { generateChart } from "./views/generateChart.js";
-import listView from "./views/listView.js";
+import * as model from './model.js';
+import coinView from './views/coinView.js';
+import searchView from './views/searchView.js';
+import listButtonView from './views/listButtonView.js';
+import listView from './views/listView.js';
 
 const controlChartView = async function () {
   try {
-    // chartView.renderSpinner();
+    coinView.renderSpinner();
     //getting chart data from API
-    await model.loadChartData();
-
-    //rendering chart
-    // chartView._generateMarkup(model.state.chart);
-    generateChart(model.state.chart);
-
-    // model.createChart(model.state.chart);
-    // generateChart(model.state.chart);
+    model.getAndDrawChart();
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
 
@@ -29,18 +22,45 @@ const controlCoinView = async function () {
 
     //rendering chart
     coinView.render(model.state.coinDetails);
-    // console.log(model.state);
   } catch (err) {
-    console.log(err);
+    coinView.renderError();
   }
 };
 
 const controlCoinList = async function () {
   try {
+    listView.renderSpinner();
     await model.loadCoinList();
     listView.render(model.createCoinList());
   } catch (err) {
-    console.log(err);
+    listView.renderError();
+  }
+};
+
+const controlSelectedFromList = function (selectedCoin) {
+  model.state.coinDetails.coinName = selectedCoin;
+  controlCoinView();
+  controlChartView();
+};
+
+const controlListBtn = function (goToPage) {
+  listView.render(model.createCoinList(goToPage));
+  listButtonView.render(model.state.coinList);
+};
+
+const controlSearchResults = async function () {
+  try {
+    coinView.renderSpinner();
+    const query = searchView.getQuery().toLowerCase();
+
+    if (!query) return;
+
+    model.state.coinDetails.coinName = query;
+
+    controlCoinView();
+    controlChartView();
+  } catch (err) {
+    searchView.renderError(err.message);
   }
 };
 
@@ -48,6 +68,10 @@ const init = function () {
   controlCoinView();
   controlChartView();
   controlCoinList();
+  listView.addHandlerRender(controlSelectedFromList);
+  listButtonView.render(model.state.coinList);
+  listButtonView.addHandlerClick(controlListBtn);
+  searchView.addHandlerSearch(controlSearchResults);
 };
 
 init();

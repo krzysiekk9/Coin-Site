@@ -4,6 +4,11 @@
 @import "./chart";
 @import "./coinDetails";
 @import "./errorMessage";
+@import "./spinner";
+
 * {
   margin: 0;
+}
+body{
+  background-color: #FAFCFE;
 }

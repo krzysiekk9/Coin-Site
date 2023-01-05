@@ -3,13 +3,9 @@ import {
   API_URL_DATA,
   API_URL_LIST,
   RES_PER_PAGE,
-} from "./config.js";
-import { AJAX } from "./helpers.js";
-import {
-  Chart,
-  registerables,
-} from "../../../node_modules/chart.js/dist/chart.js";
-Chart.register(...registerables);
+} from './config.js';
+import { AJAX } from './helpers.js';
+import { generateChart } from './views/generateChart.js';
 
 export const state = {
   chart: {
@@ -17,12 +13,12 @@ export const state = {
     pricesValues: [],
   },
   coinDetails: {
-    coinName: "",
+    coinName: 'bitcoin',
     currentPrice: 0,
     marketCap: 0,
     totalVolume: 0,
-    coinImage: "",
-    coinDescription: "",
+    coinImage: '',
+    coinDescription: '',
   },
   coinList: {
     page: 1,
@@ -45,15 +41,27 @@ const createChartData = function (data) {
 
   state.chart.datesValues = datesArr;
   state.chart.pricesValues = pricesValues;
+
+  const chartData = { datesArr, pricesValues };
+
+  return chartData;
 };
 
 export const loadChartData = async function () {
   try {
-    const data = await AJAX(API_URL_CHART);
-    createChartData(data);
+    return await AJAX(API_URL_CHART(state.coinDetails.coinName));
   } catch (err) {
     throw err;
   }
+};
+
+export const getAndDrawChart = function () {
+  loadChartData()
+    .then((data) => createChartData(data))
+    .then((data) => generateChart(data))
+    .catch((err) => {
+      throw err;
+    });
 };
 
 const createCoinData = function (data) {
@@ -69,11 +77,10 @@ const createCoinData = function (data) {
 
 export const loadCoinData = async function () {
   try {
-    const data = await AJAX(API_URL_DATA);
-    // console.log(data);
+    const data = await AJAX(API_URL_DATA(state.coinDetails.coinName));
     state.coinDetails = createCoinData(data);
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
 
@@ -83,16 +90,13 @@ export const createCoinList = function (page = state.coinList.page) {
   const start = (page - 1) * state.coinList.resultsPerPage; //0;
   const end = page * state.coinList.resultsPerPage; //9
 
-  // console.log(state.coinList.results.slice(start, end));
-  return state.coinList.results.slice(start,end)
+  return state.coinList.results.slice(start, end);
 };
 
 export const loadCoinList = async function () {
   try {
     state.coinList.results = await AJAX(API_URL_LIST);
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
-
-// loadCoinList();

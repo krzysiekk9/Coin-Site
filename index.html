@@ -16,8 +16,12 @@
   </head>
   <body>
     <header class="header">
-      <input type="text" id="search" />
-      <input type="submit" name="submit" value="Submit" class="search-btn" />
+      <img src="/src/img/logo.png" alt="logo" class="logo">
+
+        <form class="search">
+          <input type="text" class="search__field"placeholder="ethereum"/>
+          <input type="submit" name="submit" value="" class="search-btn" />
+        </form>
     </header>
     <div class="container">
       <section class="coin-list">
@@ -29,6 +33,16 @@
             </a>
           </li> -->
         </ul>
+        <div class="btn-list">
+          <!-- <button class="btn--inline">
+            <img src="/src/img/left-arrow.svg" alt="arrowLeft"/>
+            <span> Page 1</span>
+          </button>
+          <button class="btn--inline">
+            <span> Page 3</span>
+            <img src="/src/img/right-arrow.svg" alt="arrowRight"/>
+          </button> -->
+        </div>
       </section>
       <section class="coin-details">
         <!-- <div class="coin-header">
@@ -54,7 +68,7 @@
           </div>
         </div> -->
         <!-- <div class="coin-chart-wrapper"> -->
-        <canvas class="coin-chart"></canvas>
+        <canvas id="coin-chart"></canvas>
         <!-- <div class="coin-chart-btn">
             <button class="btn-chart 1h">1h</button>
             <button class="btn-chart 4h">4h</button>
