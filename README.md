@@ -23,3 +23,13 @@ Besides the possibility of searching you can also choose coin from the list. Lis
 ## Errors
 
 The error message will also appear when searched phrase will be incorrect (misspelled etc.) or when API will not respond (this may occure when too many queries is send in short time frame or API is offline).
+
+### More
+
+I tried to code this site using the MVC architecture. 
+Languages used:
+   * JavaScript,
+   * HTML,
+   * SASS.
+
+
