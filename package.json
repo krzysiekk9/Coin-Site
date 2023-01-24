@@ -4,11 +4,10 @@
     "parcel": "^2.8.3"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "parcel-plugin-static-files-copy": "^2.6.0"
+    "@parcel/transformer-sass": "^2.7.0"
   },
   "scripts": {
-    "prep": "npm install chart.js",
+    "prep": "npm install chart.js && npm install parcel-bundler",
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   }
