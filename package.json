@@ -1,5 +1,14 @@
 {
   "dependencies": {
-    "chart.js": "^4.0.1"
+    "chart.js": "^4.0.1",
+    "parcel": "^2.8.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0"
+  },
+  "scripts": {
+    "prep": "npm install chart.js && npm install parcel-bundler",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
   }
 }

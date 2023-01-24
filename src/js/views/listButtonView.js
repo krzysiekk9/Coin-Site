@@ -1,4 +1,6 @@
 import View from './View.js';
+import leftArrow from '../../img/left-arrow.svg';
+import rightArrow from '../../img/right-arrow.svg';
 
 class ListButtonView extends View {
   _parentElement = document.querySelector('.btn-list');
@@ -27,7 +29,7 @@ class ListButtonView extends View {
       return `
             <button data-goto="${curPage + 1}" class="btn--inline">
                 <span>Page ${curPage + 1}</span>
-                <img src="/src/img/right-arrow.svg" alt="arrowRight"/>
+                <img src="${rightArrow}" alt="arrowRight"/>
             </button> 
           `;
     }
@@ -35,7 +37,7 @@ class ListButtonView extends View {
     if (curPage === numPages && numPages > 1) {
       return `
             <button data-goto="${curPage - 1}" class="btn--inline">
-                <img src="/src/img/left-arrow.svg" alt="arrowLeft"/>
+                <img src="${leftArrow}" alt="arrowLeft"/>
                 <span>Page ${curPage - 1}</span>
             </button>
           `;
@@ -44,12 +46,12 @@ class ListButtonView extends View {
     if (curPage < numPages) {
       return `
             <button data-goto="${curPage - 1}" class="btn--inline">
-                <img src="/src/img/left-arrow.svg" alt="arrowLeft"/>
+                <img src="${leftArrow}" alt="arrowLeft"/>
                 <span>Page ${curPage - 1}</span>
             </button>
             <button data-goto="${curPage + 1}" class="btn--inline">
                 <span>Page ${curPage + 1}</span>
-                <img src="/src/img/right-arrow.svg" alt="arrowRight"/>
+                <img src="${rightArrow}" alt="arrowRight"/>
             </button> 
           `;
     }

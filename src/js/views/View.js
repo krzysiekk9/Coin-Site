@@ -1,3 +1,6 @@
+import errorPNG from '../../img/error.png';
+import spinnerPNG from '../../img/spinner.svg';
+
 export default class View {
   _data;
   //   _errorMessage = "Oops, something went wrong!";
@@ -31,7 +34,7 @@ export default class View {
     const markup = `
         <div class="error">
             <div>
-                <img src="./src/img/error.png" alt="errorIcon" />
+                <img src="${errorPNG}" alt="errorIcon" />
                 <p>${message}</p>
             </div>
         </div>
@@ -44,7 +47,7 @@ export default class View {
   renderSpinner() {
     const markup = `
         <div class="spinner">
-          <img src="/src/img/spinner.svg" alt="spinner" class="spinner">
+          <img src="${spinnerPNG}" alt="spinner" class="spinner">
         </div>
     `;
     this._clear();
