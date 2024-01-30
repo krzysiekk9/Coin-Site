@@ -37,5 +37,11 @@ Languages used:
 ### Check it here:
 https://market-checker.vercel.app/
 
+---
+### Chart
+Chart is generated form historical data, showing how the price changed in time.
+![image](https://github.com/krzysiekk9/Coin-Site/assets/107801980/2e638210-0ba0-438c-aa47-7ec20fcb6be4)
+
+
 
 
